@@ -18,14 +18,13 @@ export default function Badge({
   rounded = false,
   className = "",
 }) {
-  const bgColorClass = colorClasses[color]
-    ? colorClasses[color]
-    : colorClasses["gray"];
+  const bgColorClass = colorClasses[color] || colorClasses["gray"];
 
-  const roundedClass = rounded === true ? "rounded-xl" : "rounded-[4px]";
+  const roundedClass = rounded === true ? "rounded-xl" : "rounded";
 
   return (
-    children && (
+    children !== undefined &&
+    children !== null && (
       <div
         className={clsx(
           "px-3 py-0.5 font-medium w-max",
